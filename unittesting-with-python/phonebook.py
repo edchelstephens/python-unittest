@@ -13,4 +13,4 @@ class PhoneBook:
 
     def lookup(self, name:str) -> str:
         """Return phonebook number for name."""
-        return self.phonebook.get(name)
+        return self.phonebook[name]
