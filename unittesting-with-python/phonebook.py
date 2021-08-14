@@ -23,3 +23,21 @@ class PhoneBook:
     def lookup(self, name:str) -> str:
         """Return phonebook number for name."""
         return self.phonebook[name]
+
+    def is_empty(self):
+        """Check if phonebook is empty."""
+        return len(self.phonebook.items()) == 0
+
+    def is_consistent(self):
+        """Check if phonebook is consistent or correct with unique entries."""
+        
+        consistent = False
+
+        if self.is_empty():
+            consistent = True
+
+        raise NotImplementedError
+        return consistent
+
+    
+        

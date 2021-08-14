@@ -64,3 +64,16 @@ class PhoneBookTestCase(TestCase):
         self.phonebook.add("Joy", "123")
 
         self.assertFalse(self.phonebook.is_consistent())
+
+    def test_is_empty_returns_True_on_empty(self):
+        """Phonebook is empty when no entries."""
+
+        new_phonebook = PhoneBook()
+
+        self.assertTrue(new_phonebook.is_empty())
+
+    def test_is_empty_returns_False_on_non_empty(self):
+        """Phonebook with entries is not empty."""
+
+        self.phonebook.add("Ed", "123")
+        self.assertFalse(self.phonebook.is_empty())
