@@ -1,7 +1,16 @@
 """Phonebook module."""
 
 class PhoneBook:
-    """Phonebook class."""
+    """Phonebook class.
+    
+    Characteristics:
+        - lookup by name
+        - raises KeyError on not found lookup
+        - consistent when empty
+        - consistent when all different
+        - inconsistent if has duplicates
+        - inconsitent if with duplicate prefix 
+    """
 
     def __init__(self) -> None:
         """Initialize phonebook with a phonebook dictionary."""
