@@ -25,4 +25,4 @@ class PhoneBookTestCase(TestCase):
         phonebook = PhoneBook()
 
         with self.assertRaises(KeyError):
-            phonebook.lookup("not there")
+            phonebook.lookup("not there")  
