@@ -41,13 +41,6 @@ class PhoneBookTestCase(TestCase):
 
         self.assertTrue(self.phonebook.is_consistent())
 
-    def test_in_consistent_on_duplicate_name(self):
-        """Phonebook with duplicated name is inconsistent."""
-
-        self.phonebook.add("Ed", "123")
-        self.phonebook.add("Ed", "456")
-
-        self.assertFalse(self.phonebook.is_consistent())
 
     def test_in_consistent_on_duplicate_number(self):
         """Phonebook with duplicated number is inconsistent."""
@@ -77,3 +70,19 @@ class PhoneBookTestCase(TestCase):
 
         self.phonebook.add("Ed", "123")
         self.assertFalse(self.phonebook.is_empty())
+    
+    def test_has_duplicate_number_returns_False_on_empty_entries(self):
+        """Empty entries has no duplicate numbers."""
+
+        empty_phonebook = PhoneBook()
+
+        self.assertFalse(empty_phonebook.has_duplicate_number())
+
+    def test_has_duplicate_number_returns_True_on_duplicated_number(self):
+        """has_duplicate_number returns True on duplicated number."""
+
+        self.phonebook.add("Ed", "123")
+        self.phonebook.add("Joy", "123")
+
+        self.assertTrue(self.phonebook.has_duplicate_number())
+        
