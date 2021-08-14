@@ -36,12 +36,31 @@ class PhoneBook:
         unique_numbers = set(numbers)
 
         return len(numbers) > len(unique_numbers)
+    
+    def has_duplicated_number_prefix(self):
+        """Check if a number is a prefix to another entry on phonebook."""
 
+        if self.is_empty():
+            duplicated = False
+        elif self.has_duplicate_number():
+            duplicated = True
+        else:
+            numbers = set(self.phonebook.values())
+
+            duplicated = any([
+                number in compared_number for number in numbers for compared_number in numbers if number != compared_number
+            ])
+
+        return duplicated
+            
 
     def is_consistent(self):
         """Check if phonebook is consistent or correct with unique entries."""
         
-        consistent = self.is_empty() or not self.has_duplicate_number()
+        consistent = self.is_empty() or all([
+            not self.has_duplicate_number(),
+            not self.has_duplicated_number_prefix()
+        ])
 
         return consistent
 
