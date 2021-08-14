@@ -48,7 +48,7 @@ class PhoneBook:
             numbers = set(self.phonebook.values())
 
             duplicated = any([
-                number in compared_number for number in numbers for compared_number in numbers if number != compared_number
+                compared_number.startswith(number) for number in numbers for compared_number in numbers if number != compared_number
             ])
 
         return duplicated
