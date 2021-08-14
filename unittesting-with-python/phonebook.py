@@ -28,15 +28,21 @@ class PhoneBook:
         """Check if phonebook is empty."""
         return len(self.phonebook.items()) == 0
 
+
+    def has_duplicate_number(self):
+        """Check if phonebook has duplicated number entry."""
+
+        numbers = self.phonebook.values()
+        unique_numbers = set(numbers)
+
+        return len(numbers) > len(unique_numbers)
+
+
     def is_consistent(self):
         """Check if phonebook is consistent or correct with unique entries."""
         
-        consistent = False
+        consistent = self.is_empty() or not self.has_duplicate_number()
 
-        if self.is_empty():
-            consistent = True
-
-        raise NotImplementedError
         return consistent
 
     
