@@ -18,3 +18,11 @@ class PhoneBookTestCase(TestCase):
         lookup_number = phonebook.lookup(name)
 
         self.assertEqual(lookup_number, number)
+
+    def test_missing_name(self):
+        """Not found phonebook name raises KeyError"""
+
+        phonebook = PhoneBook()
+
+        with self.assertRaises(KeyError):
+            phonebook.lookup("not there")
