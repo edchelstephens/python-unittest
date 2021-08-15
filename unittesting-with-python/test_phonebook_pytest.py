@@ -41,3 +41,12 @@ def test_is_singular_retunrs_True_on_single_entry():
     phonebook.add("Ed", "123")
 
     assert phonebook.is_singular() == True
+
+def test_is_singular_returns_False_on_multiple_entry():
+    """is_singular() is False on multiple entry."""
+
+    phonebook = PhoneBook()
+    phonebook.add("Ed", "123")
+    phonebook.add("Joy", "456")
+
+    assert phonebook.is_singular() == False
