@@ -1,5 +1,7 @@
 """Phonebook module."""
 
+import os
+
 class PhoneBook:
     """Phonebook class.
     
@@ -13,8 +15,15 @@ class PhoneBook:
     """
 
     def __init__(self) -> None:
-        """Initialize phonebook with a phonebook dictionary."""
+        """Initialize phonebook with a phonebook dictionary and new phonebook file."""
         self.phonebook = {}
+        self.filename = "phonebook.txt"
+        self.cache = open(self.filename, "w")
+
+    def clear(self):
+        """clear the cached phonebook."""
+        self.cache.close()
+        os.remove(self.filename)
 
     def count(self):
         """Return number of entries on phonebook."""
