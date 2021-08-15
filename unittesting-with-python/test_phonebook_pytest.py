@@ -6,3 +6,11 @@ def test_lookup_by_name():
     phonebook.add("Ed", "123")
     
     assert "123" == phonebook.lookup("Ed")
+
+def test_phonebook_contains_all_names():
+    """Phonebook contains all names."""
+
+    phonebook = PhoneBook()
+    phonebook.add("Ed", 123)
+
+    assert phonebook.get_names() == [ "Ed", ]
