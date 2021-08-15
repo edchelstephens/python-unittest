@@ -24,7 +24,6 @@ def test_phonebook_contains_all_names(phonebook):
 
     assert "Ed" in phonebook.get_names()
 
-@pytest.mark.skipif(sys.version_info > (3, 9), reason="Test skipif")
 def test_missing_phonebook_lookup_raises_error(phonebook):
     """missing name lookup on phonebook raises KeyError"""
 
