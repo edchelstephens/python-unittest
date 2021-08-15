@@ -50,3 +50,10 @@ def test_is_singular_returns_False_on_multiple_entry():
     phonebook.add("Joy", "456")
 
     assert phonebook.is_singular() == False
+
+def test_count_returns_0_on_empty():
+    """count() returns 0 on no entry phonebook."""
+
+    phonebook = PhoneBook()
+
+    assert phonebook.count() == 0

@@ -16,6 +16,11 @@ class PhoneBook:
         """Initialize phonebook with a phonebook dictionary."""
         self.phonebook = {}
 
+    def count(self):
+        """Return number of entries on phonebook."""
+        return len(self.phonebook.items())
+
+
     def add(self, name:str, number:str) -> None:
         """Add name and number to phonebook"""
         self.phonebook[name] = number
@@ -77,7 +82,5 @@ class PhoneBook:
         
     def is_singular(self):
         """Check if phonebook only has 1 entry."""
-            
-        count = len(self.phonebook.items())
-    
-        return count == 1
+
+        return self.count() == 1
