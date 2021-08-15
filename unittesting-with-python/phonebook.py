@@ -61,7 +61,7 @@ class PhoneBook:
             not self.has_duplicate_number(),
             not self.has_duplicated_number_prefix()
         ])
-
+ 
         return consistent
 
     def get_names(self) -> list:

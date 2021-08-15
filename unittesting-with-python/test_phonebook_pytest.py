@@ -13,4 +13,4 @@ def test_phonebook_contains_all_names():
     phonebook = PhoneBook()
     phonebook.add("Ed", 123)
 
-    assert phonebook.get_names() == [ "Ed", ]
+    assert "Ed" in phonebook.get_names()
