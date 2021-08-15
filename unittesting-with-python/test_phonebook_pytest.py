@@ -5,7 +5,9 @@ from phonebook import PhoneBook
 @pytest.fixture
 def phonebook():
     """Pytest fixture to create a fresh empty phonebook."""
-    return PhoneBook()
+    phonebook = PhoneBook()
+    yield phonebook
+    phonebook.clear()
 
 def test_lookup_by_name(phonebook):
     """Name lookup returns number on phonebook when present."""
