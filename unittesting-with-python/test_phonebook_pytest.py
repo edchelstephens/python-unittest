@@ -57,3 +57,12 @@ def test_count_returns_0_on_empty():
     phonebook = PhoneBook()
 
     assert phonebook.count() == 0
+
+def test_count_returns_exact_number_of_entries_on_non_empty():
+    """count() returns 0 on no entry phonebook."""
+
+    phonebook = PhoneBook()
+    phonebook.add("Ed", "123")
+    phonebook.add("Joy", "456")
+
+    assert phonebook.count() == 2
