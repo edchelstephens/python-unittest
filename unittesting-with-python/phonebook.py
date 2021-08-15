@@ -54,7 +54,7 @@ class PhoneBook:
         return duplicated
             
 
-    def is_consistent(self):
+    def is_consistent(self) -> bool:
         """Check if phonebook is consistent or correct with unique entries."""
         
         consistent = self.is_empty() or all([
@@ -64,5 +64,14 @@ class PhoneBook:
 
         return consistent
 
+    def get_names(self) -> list:
+        """Return list of names on phonebook."""
+
+        return list(self.phonebook.keys())
+
+    def get_numbers(self):
+        """Return list of numbers on phonebook."""
+
+        return list(self.phonebook.values())
     
         

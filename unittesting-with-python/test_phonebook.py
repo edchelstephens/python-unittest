@@ -85,4 +85,12 @@ class PhoneBookTestCase(TestCase):
         self.phonebook.add("Joy", "123")
 
         self.assertTrue(self.phonebook.has_duplicate_number())
-        
+
+    def test_add_adds_name_and_number_to_phonebook(self):
+        """add() adds name and number to phonebook."""
+
+        self.phonebook.add("Ed", "123")
+        self.assertIn("Ed", self.phonebook.get_names())
+        self.assertIn("123", self.phonebook.get_numbers()) 
+
+       
