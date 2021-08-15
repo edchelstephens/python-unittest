@@ -75,3 +75,10 @@ class PhoneBook:
         return list(self.phonebook.values())
     
         
+    def is_singular(self):
+        """Check if phonebook only has 1 entry."""
+        
+        if self.is_empty():
+            singular = False  
+
+        return singular
