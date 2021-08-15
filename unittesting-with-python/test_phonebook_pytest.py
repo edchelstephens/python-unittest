@@ -24,6 +24,5 @@ def test_missing_phonebook_lookup_raises_error():
 
     phonebook = PhoneBook()
     
-    phonebook.add("Ed", 123)
     with pytest.raises(KeyError):
         phonebook.lookup("Ed")
