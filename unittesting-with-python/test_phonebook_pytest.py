@@ -6,6 +6,13 @@ from phonebook import PhoneBook
 def phonebook():
     """Pytest fixture to create a fresh empty phonebook."""
     phonebook = PhoneBook()
+
+    # way to remove created phonebook.txt
+    # instead of returning, use yield 
+    # so as to pause execution
+    # and return the phonebook instance,
+    # after the usage, just call the clear() to remove the 
+    # phonebook.txt file
     yield phonebook
     phonebook.clear()
 
