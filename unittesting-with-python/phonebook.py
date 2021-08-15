@@ -31,7 +31,7 @@ class PhoneBook:
 
     def is_empty(self):
         """Check if phonebook is empty."""
-        return len(self.phonebook.items()) == 0
+        return self.count() == 0
 
 
     def has_duplicate_number(self):
