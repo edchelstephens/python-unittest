@@ -3,18 +3,10 @@ import pytest
 from phonebook import PhoneBook
 
 @pytest.fixture
-def phonebook():
+def phonebook(tmpdir):
     """Pytest fixture to create a fresh empty phonebook."""
-    phonebook = PhoneBook()
-
-    # way to remove created phonebook.txt
-    # instead of returning, use yield 
-    # so as to pause execution
-    # and return the phonebook instance,
-    # after the usage, just call the clear() to remove the 
-    # phonebook.txt file
-    yield phonebook
-    phonebook.clear()
+    return PhoneBook(tmpdir)
+  
 
 def test_lookup_by_name(phonebook):
     """Name lookup returns number on phonebook when present."""
