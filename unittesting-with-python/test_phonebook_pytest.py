@@ -26,3 +26,10 @@ def test_missing_phonebook_lookup_raises_error():
     
     with pytest.raises(KeyError):
         phonebook.lookup("Ed")
+
+def test_is_singular_returns_False_on_empty():
+    """is_singular() returns False on empty phonebook."""
+
+    phonebook = PhoneBook()
+
+    assert phonebook.is_singular() == False
