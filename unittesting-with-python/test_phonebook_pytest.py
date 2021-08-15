@@ -23,6 +23,7 @@ def test_missing_phonebook_lookup_raises_error():
     """missing name lookup on phonebook raises KeyError"""
 
     phonebook = PhoneBook()
-
+    
+    phonebook.add("Ed", 123)
     with pytest.raises(KeyError):
-        phonebook.lookup("NotThere")
+        phonebook.lookup("Ed")
