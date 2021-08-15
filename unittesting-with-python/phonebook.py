@@ -14,21 +14,15 @@ class PhoneBook:
         - inconsitent if with duplicate prefix 
     """
 
-    def __init__(self) -> None:
+    def __init__(self, cache_directory=None) -> None:
         """Initialize phonebook with a phonebook dictionary and new phonebook file."""
         self.phonebook = {}
-        self.filename = "phonebook.txt"
-        self.cache = open(self.filename, "w")
 
-    def clear(self):
-        """clear the cached phonebook."""
-        self.cache.close()
-        os.remove(self.filename)
-
-    def count(self):
-        """Return number of entries on phonebook."""
-        return len(self.phonebook.items())
-
+        if cache_directory is not None: 
+            self.filename = os.path.join(cache_directory, "phonebook.txt")
+            self.cache = open(self.filename, "w")
+        else:
+            self.cache = None
 
     def add(self, name:str, number:str) -> None:
         """Add name and number to phonebook"""
@@ -37,6 +31,16 @@ class PhoneBook:
     def lookup(self, name:str) -> str:
         """Return phonebook number for name."""
         return self.phonebook[name]
+
+    def clear(self):
+        """clear the cached phonebook."""
+        if self.cache is not None:
+            self.cache.close()
+            os.remove(self.filename)
+
+    def count(self):
+        """Return number of entries on phonebook."""
+        return len(self.phonebook.items())
 
     def is_empty(self):
         """Check if phonebook is empty."""
