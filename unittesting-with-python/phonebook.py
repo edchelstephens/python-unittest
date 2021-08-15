@@ -77,8 +77,7 @@ class PhoneBook:
         
     def is_singular(self):
         """Check if phonebook only has 1 entry."""
-        
-        if self.is_empty():
-            singular = False  
-
-        return singular
+            
+        count = len(self.phonebook.items())
+    
+        return count == 1

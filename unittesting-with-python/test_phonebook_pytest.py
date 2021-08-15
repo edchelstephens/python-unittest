@@ -33,3 +33,11 @@ def test_is_singular_returns_False_on_empty():
     phonebook = PhoneBook()
 
     assert phonebook.is_singular() == False
+
+def test_is_singular_retunrs_True_on_single_entry():
+    """is_singular() returns True on single entry phonebook."""
+
+    phonebook = PhoneBook() 
+    phonebook.add("Ed", "123")
+
+    assert phonebook.is_singular() == True
