@@ -2,66 +2,60 @@ import pytest
 
 from phonebook import PhoneBook
 
-def test_lookup_by_name():
+@pytest.fixture
+def phonebook():
+    """Pytest fixture to create a fresh empty phonebook."""
+    return PhoneBook()
+
+def test_lookup_by_name(phonebook):
     """Name lookup returns number on phonebook when present."""
-    
-    phonebook = PhoneBook()
+
     phonebook.add("Ed", "123")
     
     assert "123" == phonebook.lookup("Ed")
 
-def test_phonebook_contains_all_names():
+def test_phonebook_contains_all_names(phonebook):
     """Phonebook contains all names."""
 
-    phonebook = PhoneBook()
     phonebook.add("Ed", 123)
 
     assert "Ed" in phonebook.get_names()
 
 
-def test_missing_phonebook_lookup_raises_error():
+def test_missing_phonebook_lookup_raises_error(phonebook):
     """missing name lookup on phonebook raises KeyError"""
 
-    phonebook = PhoneBook()
-    
     with pytest.raises(KeyError):
         phonebook.lookup("Ed")
 
-def test_is_singular_returns_False_on_empty():
+def test_is_singular_returns_False_on_empty(phonebook):
     """is_singular() returns False on empty phonebook."""
-
-    phonebook = PhoneBook()
 
     assert phonebook.is_singular() == False
 
-def test_is_singular_retunrs_True_on_single_entry():
+def test_is_singular_retunrs_True_on_single_entry(phonebook):
     """is_singular() returns True on single entry phonebook."""
 
-    phonebook = PhoneBook() 
     phonebook.add("Ed", "123")
 
     assert phonebook.is_singular() == True
 
-def test_is_singular_returns_False_on_multiple_entry():
+def test_is_singular_returns_False_on_multiple_entry(phonebook):
     """is_singular() is False on multiple entry."""
 
-    phonebook = PhoneBook()
     phonebook.add("Ed", "123")
     phonebook.add("Joy", "456")
 
     assert phonebook.is_singular() == False
 
-def test_count_returns_0_on_empty():
+def test_count_returns_0_on_empty(phonebook):
     """count() returns 0 on no entry phonebook."""
-
-    phonebook = PhoneBook()
 
     assert phonebook.count() == 0
 
-def test_count_returns_exact_number_of_entries_on_non_empty():
+def test_count_returns_exact_number_of_entries_on_non_empty(phonebook):
     """count() returns 0 on no entry phonebook."""
 
-    phonebook = PhoneBook()
     phonebook.add("Ed", "123")
     phonebook.add("Joy", "456")
 
