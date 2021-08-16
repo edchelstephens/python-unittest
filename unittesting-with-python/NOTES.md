@@ -25,3 +25,5 @@
 
 ## Spy
 > Can fail the test if it's not called correctly
+> Records the method calls it receivs so you can assert they were correct
+> You use a spy when you want to make sure the interaction of two objects are happening correctly.
