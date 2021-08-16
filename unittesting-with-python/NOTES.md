@@ -7,7 +7,7 @@
 > Responds with fixed, pre-prepared data
 > You use one when it's inconvenient to use the real collaborate object.
     - like when the real object relies on a resource that is not available on the unit test.
-
+> Will not fail the test
 
 ## Fake object
 > Unlike a stub, it has a realistic implementation with the logic and behavior of the class it replaces
@@ -19,3 +19,9 @@
 > A dummy is not used
 > It's usually None, or an empty list, etc
 > You use a dummy when you're forced to pass an argument to the method or function under test, but that collaborator isn't used in the scenario you're testing.
+
+## Mock
+> Can fail the test if it's not called correctly
+
+## Spy
+> Can fail the test if it's not called correctly
