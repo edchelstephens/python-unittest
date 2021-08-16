@@ -20,10 +20,16 @@
 > It's usually None, or an empty list, etc
 > You use a dummy when you're forced to pass an argument to the method or function under test, but that collaborator isn't used in the scenario you're testing.
 
-## Mock
-> Can fail the test if it's not called correctly
-
 ## Spy
 > Can fail the test if it's not called correctly
 > Records the method calls it receivs so you can assert they were correct
 > You use a spy when you want to make sure the interaction of two objects are happening correctly.
+
+## Mock
+> Can fail the test if it's not called correctly
+> Knows what method calls to expect and fails the test if they are incorrect
+> Expect certain method calls otherwise raise an error
+> You use a mock when you want to make sure the interaction of two objects are happening correctly 
+> and you want the test to fail fast, as soon as any incorrect interaction happens.
+> Gives you the stack trace of where the failure actually happens
+
