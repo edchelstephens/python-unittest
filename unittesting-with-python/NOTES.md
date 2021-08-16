@@ -33,3 +33,13 @@
 > and you want the test to fail fast, as soon as any incorrect interaction happens.
 > Gives you the stack trace of where the failure actually happens
 
+
+## Two Groups of Test Doubles:
+### Replace inconvenient collaborators
+    - Dummy
+    - Stub
+    - Fake
+
+### Ensure interactions are correct
+    - Spy
+    - Mock
